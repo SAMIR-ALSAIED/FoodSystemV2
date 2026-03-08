@@ -1,0 +1,229 @@
+:root {
+    --primary-dark: #0f172a;
+    --secondary-dark: #1e293b;
+    --accent-gold: #fbbf24;
+    --text-muted: #94a3b8;
+    --soft-white: #f8fafc;
+    --success-green: #10b981;
+}
+
+body {
+    background-color: var(--primary-dark);
+    font-family: "Segoe UI", system-ui, sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    color: var(--soft-white);
+}
+
+/* الهيدر العلوي */
+header {
+    background: linear-gradient(90deg, #000000, #111827);
+    padding: 0 25px;
+    border-bottom: 1px solid #334155;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.user-box {
+    background: #1e293b;
+    border-radius: 10px;
+    border: 1px solid #334155;
+}
+
+header .btn-outline-danger {
+    border-radius: 10px;
+}
+
+.search-box {
+    position: relative;
+    width: 300px;
+}
+.search-box input {
+    background: var(--secondary-dark);
+    border: 1px solid #334155;
+    color: white;
+    border-radius: 10px;
+    padding: 7px 35px 7px 15px;
+}
+.search-box i {
+    position: absolute;
+    right: 12px;
+    top: 10px;
+    color: var(--accent-gold);
+}
+
+#mainSearch {
+    color: white; /* لون النص المكتوب */
+    background-color: var(--secondary-dark); /* خلفية داكنة */
+}
+
+#mainSearch::placeholder {
+    color: white; /* لون النص الظاهر قبل الكتابة */
+    opacity: 0.7; /* شوية شفافية عشان يبقى لطيف */
+}
+
+/* قائمة الأقسام الجانبية */
+.category-sidebar {
+    background: #000;
+    height: calc(100vh - 60px);
+    padding: 15px 10px;
+    border-left: 1px solid #334155;
+    overflow-y: auto;
+}
+.cat-item {
+    width: 100%;
+    border: none;
+    padding: 12px 5px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    color: var(--text-muted);
+    background: transparent;
+    transition: 0.3s;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+.cat-item.active {
+    background: var(--accent-gold);
+    color: #000;
+    box-shadow: 0 4px 15px rgba(251, 191, 36, 0.2);
+}
+.cat-item:hover:not(.active) {
+    background: #1e293b;
+    color: white;
+}
+
+/* منطقة المنتجات */
+.main-content {
+    height: calc(100vh - 60px);
+    overflow-y: auto;
+    padding: 20px;
+}
+.product-card {
+    background-color: var(--secondary-dark);
+    aspect-ratio: 1/1;
+    border-radius: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+    position: relative;
+    transition: 0.2s;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: center;
+    overflow: hidden;
+    
+}
+.product-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-gold);
+}
+.product-card .price-tag {
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    padding: 0px 0;
+    font-size: 1rem;
+    color: var(--accent-gold);
+    font-weight: 800;
+    backdrop-filter: blur(5px);
+}
+.badge-qty {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #ef4444;
+    color: white;
+    border-radius: 6px;
+    padding: 2px 8px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+/* لوحة الفاتورة اليمين */
+.order-panel {
+    background: #fff;
+    height: calc(100vh - 60px);
+    display: flex;
+    flex-direction: column;
+    color: #1e293b;
+    border-radius: 20px 20px 0 0;
+}
+.total-area {
+    background: #111827;
+    color: var(--accent-gold);
+    padding: 15px;
+    text-align: center;
+    border-radius: 0 20px 0 0;
+}
+.bill-list {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+.receipt-table thead th {
+    background: #f8fafc;
+    color: #64748b;
+    font-size: 0.8rem;
+    border: none;
+    padding: 10px;
+}
+.receipt-table tbody td {
+    border-bottom: 1px solid #f1f5f9;
+    padding: 10px 5px;
+    font-weight: 600;
+}
+
+/* التحكم في الكمية داخل الفاتورة */
+.qty-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+.qty-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-weight: bold;
+}
+.qty-btn:hover {
+    background: #f1f5f9;
+    color: var(--accent-gold);
+}
+
+.btn-confirm {
+    background: var(--success-green);
+    color: white;
+    border: none;
+    padding: 15px;
+    font-weight: bold;
+    border-radius: 12px;
+    font-size: 1.1rem;
+}
+.btn-confirm:hover {
+    background: #059669;
+}
+
+@media print {
+    .no-print {
+        display: none !important;
+    }
+}
+
+
+
+
+
+

@@ -1,0 +1,54 @@
+
+/* زر الصفحة النشطة */
+.pagination .page-link {
+    color: #2b4c7e !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.pagination .page-link:hover {
+    background-color: #2b4c7e !important;
+    color: #fff !important;
+}
+
+.pagination .page-link:focus,
+.pagination .page-link:active {
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #2b4c7e !important;
+    border-color: #2b4c7e !important;
+    color: #fff !important;
+}
+
+
+ th{
+
+    background:#343a40 !important;
+    color: #ffffff !important;
+}
+
+
+.btn-dark{
+    background-color: #5f6267 !important;
+    box-shadow: none !important ;
+    border: none;
+}
+
+
+.bg-primary{
+
+    background-color: #0b6fad !important;
+}
+
+
+.btn-primary{
+
+        background-color: #0b6fad !important;
+            box-shadow: none !important ;
+    border: none;
+
+}
+

@@ -1,0 +1,960 @@
+/* ===== Global Styles ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    overflow-x: hidden;
+}
+
+a{
+    text-decoration: none !important;
+}
+/* ===== Navbar ===== */
+.navbar {
+    padding: 1rem 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.nav-link {
+    font-weight: 500;
+    margin: 0 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #ffc107 !important;
+}
+
+/* ===== Hero Section ===== */
+.hero-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+/* background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)),
+                      url('../imges/bg.png');
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; */
+
+           background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+    margin-top: 56px;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-buttons .btn {
+    padding: 0.9rem 2.2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    background: linear-gradient(45deg, #ff6600, #ff9900);
+    color: #fff;
+    border: none;
+    transition: all 0.4s ease;
+
+    animation-delay: 0.9s;
+    animation-fill-mode: both;
+}
+
+.hero-buttons .btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+    background: linear-gradient(45deg, #ff9900, #ff6600);
+}
+
+
+/* ===== Features Section ===== */
+.features-section {
+    background: #f8f9fa;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+
+
+.feature-card {
+        background: #fff;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    background: white;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+
+}
+
+
+.feature-card:hover {
+    transform: translateY(-15px) scale(1.05); /* حركة سلسة */
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2); /* ظل أقوى */
+background: linear-gradient(135deg, #2c2c2c, #ff7a2e);
+
+    color: #fff;
+    transition: all 0.4s ease-in-out; /* إضافة Transition انسيابية */
+}
+
+
+.feature-card p:hover {
+
+    color: #fff !important;
+
+}
+
+
+
+
+.feature-icon {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 1.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #ff6600, #ff9900);
+    font-size: 2rem;
+    color: #fff;
+    transition: all 0.4s ease;
+}
+
+.feature-icon i {
+    font-size: 2rem;
+    color: white;
+}
+
+/* ===== QR Code Section ===== */
+.qrcode-section {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.qrcode-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+}
+
+.qr-container {
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+}
+
+.qr-placeholder {
+    width: 100%;
+    height: 100%;
+    background: #f8f9fa;
+    border: 3px dashed #dee2e6;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.qr-placeholder i {
+    font-size: 5rem;
+    color: #6c757d;
+}
+
+#qrcode-display canvas,
+#qrcode-display img {
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 15px;
+}
+
+/* ===== Popular Dishes ===== */
+.dish-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+.dish-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.dish-image-placeholder {
+    height: 250px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dish-image-placeholder i {
+    font-size: 5rem;
+    color: white;
+    opacity: 0.8;
+}
+
+.price {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #667eea;
+}
+
+.rating {
+    font-weight: 600;
+    color: #ffc107;
+}
+
+/* ===== Page Header ===== */
+.page-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 100px 0 60px;
+
+    margin-top: 56px;
+    text-align: center;
+}
+
+.page-header h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+/* ===== Menu Page ===== */
+.menu-filter {
+    margin-bottom: 2rem;
+}
+
+.filter-btn {
+    background: white;
+    border: 2px solid #dee2e6;
+    padding: 0.6rem 1.5rem;
+    margin: 0.3rem;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-color: transparent;
+}
+
+.category-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+    padding-bottom: 1rem;
+    border-bottom: 3px solid #667eea;
+    display: inline-block;
+}
+
+.menu-item {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    /* transition: all 0.3s ease; */
+}
+
+/* .menu-item:hover {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+
+} */
+
+.menu-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.menu-item h5 {
+    font-weight: 700;
+    color: #333;
+}
+
+/* ===== About Page ===== */
+.about-image-placeholder {
+    height: 400px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-image-placeholder i {
+    font-size: 8rem;
+    color: white;
+    opacity: 0.8;
+}
+
+.vision-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+.vision-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.vision-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vision-icon i {
+    font-size: 2rem;
+    color: white;
+}
+
+.stat-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.stat-card:hover .stat-icon i,
+.stat-card:hover .stat-number,
+.stat-card:hover .text-muted {
+    color: white !important;
+}
+
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stat-icon i {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #667eea;
+}
+
+.team-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.team-image-placeholder {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-item img {
+    width: 100%;          /* ممتدة بعرض العمود */
+    height: 200px;        /* ارتفاع ثابت */
+    object-fit: cover;    /* قص الصورة لتغطية المساحة */
+    border-radius: 15px;  /* زوايا مدورة */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* ظل خفيف */
+    transition: transform 0.3s, box-shadow 0.3s; /* حركة سلسة */
+}
+
+.menu-item img:hover {
+    transform: scale(1.05);       /* تكبير خفيف عند المرور */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* ظل أقوى */
+}
+
+
+.team-image-placeholder i {
+    font-size: 4rem;
+    color: white;
+}
+
+/* ===== Contact Page ===== */
+.contact-info-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+.contact-info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.contact-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-icon i {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.contact-form-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.form-control {
+    padding: 0.8rem;
+    border-radius: 10px;
+    border: 2px solid #dee2e6;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+}
+
+.map-container {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.map-placeholder {
+    height: 400px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.map-placeholder i {
+    font-size: 5rem;
+    opacity: 0.8;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.social-link {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.3rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+/* ===== Reservation Section Centered ===== */
+.reservation-section {
+    display: flex;
+    align-items: center;       /* توسيط عمودي */
+    justify-content: center;   /* توسيط أفقي */
+    min-height: 100vh;         /* يأخذ كامل ارتفاع الشاشة */
+    background-color: #f8f9fa;
+    padding: 0;                /* إزالة أي padding زائد */
+}
+
+.reservation-section form {
+    padding: 2.5rem 2rem;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 600px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.reservation-section form:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+.reservation-section .input-group-text {
+    background:#212529; /* لون البرتقالي الجميل */
+    color: #fff;
+}
+
+.reservation-section .btn-primary {
+    background: #ff6600; /* زر برتقالي */
+    border: none;
+}
+
+.reservation-section .btn-primary:hover {
+    background: #e65c00;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+
+.social-link:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    color: white;
+}
+/* ===== Footer ===== */
+.footer {
+    margin-top: 3rem;
+    background-color: #212529; /* داكن أغمق */
+    color: #f8f9fa;            /* نص أبيض فاتح */
+    padding-top: 3rem;
+    padding-bottom: 1.5rem;
+        font-family: 'Cairo', sans-serif;
+}
+
+.footer a {
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+    color: #f8f9fa;
+}
+
+.footer a:hover {
+    color: #ffc107 !important; /* أصفر جذاب */
+    transform: scale(1.05);     /* تكبير خفيف عند المرور */
+}
+
+.footer hr {
+    border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+.footer h5 {
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.footer p {
+    color: rgba(248, 249, 250, 0.8);
+}
+
+.footer .d-flex p {
+    margin-bottom: 0;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+    .hero-section {
+        min-height: 70vh;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .page-header h1 {
+        font-size: 2rem;
+    }
+
+    .category-title {
+        font-size: 1.5rem;
+    }
+
+    .qr-container {
+        width: 250px;
+        height: 250px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-buttons .btn {
+        display: block;
+        width: 100%;
+        margin: 0.5rem 0 !important;
+    }
+
+    .filter-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* ===== Animations ===== */
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.animate-slide-right {
+    animation: slideInRight 0.8s ease-out;
+}
+
+.animate-slide-left {
+    animation: slideInLeft 0.8s ease-out;
+}
+
+
+
+    /* ======= Menu Page Pro Style ======= */
+
+/* Page Header */
+.page-header {
+    background: linear-gradient(120deg, #f39c12, #e74c3c);
+    color: #fff;
+    border-radius: 0 0 40px 40px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    padding: 80px 0;
+    text-align: center;
+}
+
+.page-header h1 {
+    font-weight: 900;
+    font-size: 3rem;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+}
+
+.page-header p {
+    font-size: 1.3rem;
+    color: #fff;
+    margin-top: 15px;
+}
+
+/* Category Buttons */
+.menu-section .btn-outline-primary {
+    border-width: 2px;
+    border-radius: 50px;
+    padding: 0.6rem 1.5rem;
+    margin: 5px;
+    font-weight: 600;
+    transition: all 0.3s;
+    color: #333;
+
+        border: 2px solid transparent;
+    background: #e74c3c;
+
+    color: #fff;
+
+}
+
+.menu-section .btn-outline-primary.active,
+.menu-section .btn-outline-primary:hover {
+    background: #e74c3c !important;
+    color: #fff;
+
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transform: translateY(-3px);
+}
+
+/* Product Card */
+.menu-section .card {
+    border-radius: 25px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    position: relative;
+    border: none;
+}
+
+.menu-section .card:hover {
+
+    box-shadow: 0 25px 35px rgba(0,0,0,0.15);
+}
+
+/* Card Image */
+.menu-section .card-img-top {
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    transition: transform 0.5s ease;
+}
+
+.menu-section .card:hover .card-img-top {
+    transform: scale(1.1);
+}
+
+/* Card Body */
+.menu-section .card-body {
+    padding: 1.3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Card Title */
+.menu-section .card-title {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Price */
+.menu-section .card-body span {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #e74c3c;
+    text-align: center;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Add to Cart Button */
+.menu-section .btn-success {
+    border-radius: 50px;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    background: #e67e22;
+    border: none;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-section .btn-success i {
+    margin-right: 8px;
+}
+
+.menu-section .btn-success:hover {
+    background: #d35400;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Empty Message */
+.menu-section p.text-muted {
+    font-size: 1.3rem;
+    margin-top: 3rem;
+}
+
+/* Pagination Style for Menu */
+.menu-section .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    gap: 5px;
+}
+
+.menu-section .pagination li a,
+.menu-section .pagination li span {
+    background: #e67e22; /* لون برتقالي */
+    color: #fff !important; /* نص أبيض */
+    border-radius: 50px !important;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.menu-section .pagination li a:hover {
+    background: #d35400; /* برتقالي أغمق عند Hover */
+    color: #fff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* للصفحة النشطة */
+.menu-section .pagination .active span {
+    background: #ff7f50; /* برتقالي فاتح للصفحة الحالية */
+    color: #fff !important;
+    font-weight: 700;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+}
+
+
+
+
+/* reservation */
+
+
+
+  /* Page Header */
+.page-header {
+    background: linear-gradient(120deg, #f39c12, #e74c3c);
+    color: #fff;
+    border-radius: 0 0 40px 40px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    padding: 80px 0;
+    text-align: center;
+}
+
+.page-header h1 {
+    font-weight: 900;
+    font-size: 3rem;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+}
+
+.page-header p {
+    font-size: 1.3rem;
+    margin-top: 15px;
+}
+
+/* Reservation Form Card */
+.reservation {
+    background: #fff;
+    border-radius: 25px;
+    padding: 40px 30px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    max-width: 900px;
+    margin: -60px auto 60px;
+}
+
+span{
+        color: #e74c3c;
+}
+
+.reservation h2 {
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #e74c3c;
+}
+
+/* Form Fields */
+.reservation .form-control,
+.reservation .form-select {
+    border-radius: 50px;
+    padding: 12px 20px;
+    border: 1px solid #000000;
+    transition: 0.3s;
+}
+
+.reservation .form-control:focus,
+.reservation .form-select:focus {
+    border-color: #d35400;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* Error Message */
+.reservation span.text-danger {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.9rem;
+}
+
+/* Submit Button */
+.reservation button {
+    background: #e67e22;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 12px 30px;
+    transition: all 0.3s;
+}
+
+.reservation button:hover {
+    background: #d35400;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Alerts */
+.reservation .alert {
+    border-radius: 20px;
+    font-weight: 600;
+}
