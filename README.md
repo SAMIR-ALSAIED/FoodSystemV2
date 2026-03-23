@@ -32,3 +32,9 @@ Start the server:
 php artisan serve
 
 
+🔑 Demo Accounts
+Role	Email	Password
+Admin	samir@gmail.com	12345678
+Cashier	mohamed@gmail.com	123456
+
+
