@@ -17,7 +17,6 @@ class CartController extends Controller
         return view('front.cart', compact('cart'));
     }
 
-    // إضافة منتج للسلة (الدالة التي سببت الخطأ)
     public function add(Request $request)
     {
         $product = Product::findOrFail($request->product_id);
