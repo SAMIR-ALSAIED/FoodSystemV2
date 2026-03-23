@@ -4,12 +4,14 @@
 
 @section('front_content')
 
+    <link rel="stylesheet" href="{{ asset('front')}}/css/menu.css">
+
 
 <!-- Page Header -->
-<section class="page-header bg-dark py-5 mt-5">
+<section class="page-header">
     <div class="container text-center">
-        <h1 class="text-white display-5 fw-bold">قائمة الطعام</h1>
-        <p class="text-white lead">اختر من بين أشهى الأطباق لدينا</p>
+        <h1>قائمة الطعام</h1>
+   
     </div>
 </section>
 
@@ -18,67 +20,65 @@
     <div class="container">
 
         <!-- Category Filter -->
-        <div class="row mb-5">
-            <div class="col-12 text-center">
+        <div class="menu-filters">
+            <a href="{{ route('front.menu') }}"
+               class="filter-pill {{ empty($categoryId) ? 'active' : '' }}">
+                الكل
+            </a>
 
-                <a href="{{ route('front.menu') }}"
-                   class="btn btn-outline-primary mx-1 {{ empty($categoryId) ? 'active fw-bold text-decoration-underline' : '' }}">
-                    الكل
-                </a>
-
-                @foreach($categories as $category)
-                  
-                     @if($category->products->count() > 0) <!-- شرط يظهر القسم لو فيه منتجات -->
-                <a href="{{ route('front.menu.filter', $category->id) }}"
-                   class="btn btn-outline-primary mx-1 {{ isset($categoryId) && $categoryId == $category->id ? 'active fw-bold text-decoration-underline' : '' }}">
-                    {{ $category->name }}
-                </a>
-            @endif
-                @endforeach
-
-            </div>
+            @foreach($categories as $category)
+                @if($category->products->count() > 0)
+                    <a href="{{ route('front.menu.filter', $category->id) }}"
+                       class="filter-pill {{ isset($categoryId) && $categoryId == $category->id ? 'active' : '' }}">
+                        {{ $category->name }}
+                    </a>
+                @endif
+            @endforeach
         </div>
 
-        <!-- Products -->
-        <div class="row g-4">
+        <!-- Products Grid -->
+        <div class="products-grid">
             @forelse($products as $product)
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="card h-100 shadow-sm border-0 d-flex flex-column">
+                <div class="product-card">
 
-                        <!-- Image -->
+                    <!-- Image -->
+                    <div class="product-img-wrap">
                         <img src="{{ $product->image ? asset('images/'.$product->image) : asset('images/default.jpg') }}"
-                             class="card-img-top rounded-top" alt="{{ $product->name }}" style="height:200px; object-fit:cover;">
+                             alt="{{ $product->name }}">
+                    </div>
 
-                        <!-- Card Body -->
-                        <div class="card-body d-flex flex-column flex-grow-1">
-                            <h5 class="card-title text-center mb-3">{{ $product->name }}</h5>
-<div class="mt-auto">
-    <span class="d-block text-center fs-5 fw-bold mb-2">{{ $product->price }} جنية</span>
+                    <!-- Body -->
+                    <div class="product-body">
 
-    <form action="{{ route('front.cart.add') }}" method="POST">
-        @csrf
-        <input type="hidden" name="product_id" value="{{ $product->id }}">
-        <input type="hidden" name="quantity" value="1">
-
-        <button type="submit"
-            class="btn btn-success w-100 d-flex align-items-center justify-content-center">
-            <i class="fas fa-cart-plus me-2"></i> اضافة الاوردر
-        </button>
-    </form>
-</div>
-
-
+                        <!-- Name & Price in one row -->
+                        <div class="name-price">
+                            <h5 class="product-name">{{ $product->name }}</h5>
+                            <span class="price-tag " >{{ $product->price }} ج</span>
                         </div>
+
+                        <!-- Add to Cart -->
+                        <form action="{{ route('front.cart.add') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="product_id" value="{{ $product->id }}">
+                            <input type="hidden" name="quantity" value="1">
+                            <button type="submit" class="add-to-cart-btn">
+                                <i class="fas fa-cart-plus"></i>
+                                  اطلب الآن
+                            </button>
+                        </form>
 
                     </div>
                 </div>
             @empty
-                <p class="text-center text-muted fs-5">لا توجد منتجات</p>
+                <div class="empty-state">
+                    <i class="fas fa-utensils"></i>
+                    <p>لا توجد منتجات في هذا القسم</p>
+                </div>
             @endforelse
         </div>
 
         <!-- Pagination -->
-        <div class="d-flex justify-content-center mt-5">
+        <div class="menu-pagination">
             {{ $products->links('pagination::bootstrap-4') }}
         </div>
 

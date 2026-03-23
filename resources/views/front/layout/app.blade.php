@@ -33,14 +33,14 @@
                         <a class="nav-link {{ request()->routeIs('front.menu') ? 'active' : '' }}" 
    href="{{ route('front.menu') }}" 
    style="{{ request()->routeIs('front.menu') ? 'active' : '' }}">
-   قائمة الطعام
+   المنيو 
 </a>
                     </li>
 
                     <li class="nav-item">
                         <a class="nav-link {{ request()->routeIs('front.reservation.*') ? 'active' : '' }}" 
    href="{{ route('front.reservation.create') }}">
-   الحجوزات
+   حجز الطاولات 
 </a>
                     </li>
                     {{-- <li class="nav-item">

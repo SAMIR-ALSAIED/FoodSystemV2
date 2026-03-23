@@ -68,14 +68,19 @@ public function update(UpdateRoleRequest $request, Role $role){
 
 
 
-    public function destroy(Role $role){
 
 
-         $role->delete();
+public function destroy(Role $role)
+{
+    if ($role->name === 'admin') {
+        return redirect()->route('roles.index')
+            ->with('error', 'لا يمكن حذف صلاحية المدير');
+    }
 
+    $role->delete();
 
-     return redirect()->route('roles.index')->with('error', 'تم حذف الصلاحية بنجاح');
-
+    return redirect()->route('roles.index')
+        ->with('success', 'تم حذف الصلاحية بنجاح');
 }
 
 }

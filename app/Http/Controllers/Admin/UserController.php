@@ -96,15 +96,28 @@ public function store(AddUserRequest $request){
 
 
     }
-    public function destroy(User $user){
 
 
-         $user->delete();
-
-
-     return redirect()->route('users.index')->with('error', 'تم حذف المستخدم بنجاح');
-
+    
+    public function destroy(User $user)
+{
+    if ($user->hasRole('admin')) {
+        return redirect()->route('users.index')
+            ->with('error', 'لا يمكن حذف المدير');
     }
+
+    if ($user->id === auth()->id()) {
+        return redirect()->route('users.index')
+            ->with('error', 'لا يمكنك حذف حسابك أنت');
+    }
+
+    $user->delete();
+
+    return redirect()->route('users.index')
+        ->with('success', 'تم حذف المستخدم بنجاح');
+}
+
+
 
 
 

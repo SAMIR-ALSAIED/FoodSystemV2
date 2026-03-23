@@ -113,12 +113,18 @@
 
 
 
+
+@if($role->name !== 'admin')
+
                  <a href="{{route('roles.edit',$role->id)}}" class="btn btn-primary">
     <i class="fas fa-edit"></i>
 
 </a>
 
+@endif
 
+
+@if($role->name !== 'admin')
 
 
 <form action="{{route('roles.destroy',$role->id)}}" method="POST" style="display:inline-block;">
@@ -129,6 +135,7 @@
     </button>
 </form>
 
+@endif
 
                     </td>
                   </tr>

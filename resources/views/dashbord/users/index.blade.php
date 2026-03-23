@@ -110,6 +110,8 @@
     <i class="fas fa-edit"></i>
 </a>
 
+@if(!$user->hasRole('admin'))
+
 <form action="{{route('users.destroy',$user->id)}}" method="POST" style="display:inline-block;">
     @csrf
     @method('DELETE')
@@ -118,6 +120,7 @@
     </button>
 </form>
 
+@endif
                     </td>
                   </tr>
 
