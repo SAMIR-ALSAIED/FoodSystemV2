@@ -68,8 +68,6 @@ public function update(UpdateRoleRequest $request, Role $role){
 
 
 
-
-
 public function destroy(Role $role)
 {
     if ($role->name === 'admin') {

@@ -262,20 +262,54 @@ backToTopButton.innerHTML = '<i class="fas fa-arrow-up"></i>';
 backToTopButton.className = 'back-to-top';
 backToTopButton.style.cssText = `
     position: fixed;
-    bottom: 20px;
-    left: 20px;
-    width: 50px;
-    height: 50px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    bottom: 32px;
+    left: 32px;
+    width: 48px;
+    height: 48px;
+    background: #ff8c00;
+    color: #0a0a0a;
     border: none;
     border-radius: 50%;
     cursor: pointer;
     display: none;
     z-index: 1000;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    font-size: 0.9rem;
 `;
+
+document.body.appendChild(backToTopButton);
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+        backToTopButton.style.display = 'flex';
+        backToTopButton.style.alignItems = 'center';
+        backToTopButton.style.justifyContent = 'center';
+        backToTopButton.style.opacity = '1';
+        backToTopButton.style.transform = 'translateY(0)';
+    } else {
+        backToTopButton.style.opacity = '0';
+        backToTopButton.style.transform = 'translateY(12px)';
+        setTimeout(() => {
+            if (window.scrollY <= 300) backToTopButton.style.display = 'none';
+        }, 400);
+    }
+});
+
+backToTopButton.addEventListener('mouseenter', () => {
+    backToTopButton.style.background = '#ffaa33';
+    backToTopButton.style.transform = 'translateY(-4px)';
+    backToTopButton.style.boxShadow = '0 12px 28px rgba(255, 140, 0, 0.35)';
+});
+
+backToTopButton.addEventListener('mouseleave', () => {
+    backToTopButton.style.background = '#ff8c00';
+    backToTopButton.style.transform = 'translateY(0)';
+    backToTopButton.style.boxShadow = 'none';
+});
+
+backToTopButton.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
 
 document.body.appendChild(backToTopButton);
 

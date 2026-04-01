@@ -26,7 +26,7 @@ class RolesSeeder extends Seeder
     $user=  User::create([
 
     'name'=>'samir',
-   'email'=>'samir@gamil.com',
+   'email'=>'samir@gmail.com',
   'password'=> Hash::make('12345678'),
 
 

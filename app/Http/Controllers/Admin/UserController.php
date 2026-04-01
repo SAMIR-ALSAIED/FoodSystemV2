@@ -98,7 +98,6 @@ public function store(AddUserRequest $request){
     }
 
 
-    
     public function destroy(User $user)
 {
     if ($user->hasRole('admin')) {
@@ -116,10 +115,6 @@ public function store(AddUserRequest $request){
     return redirect()->route('users.index')
         ->with('success', 'تم حذف المستخدم بنجاح');
 }
-
-
-
-
 
 
 

@@ -10,97 +10,134 @@ use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
-    // عرض السلة
+    // عرض  السلة
     public function index()
     {
         $cart = session()->get('cart', []);
         return view('front.cart', compact('cart'));
     }
 
+<<<<<<< HEAD
+=======
+    // إضافة منتج للسلة
+>>>>>>> e0081a4 (update: improve cart, reservation, roles and UI)
     public function add(Request $request)
     {
         $product = Product::findOrFail($request->product_id);
         $cart = session()->get('cart', []);
+        $qty = max(1, intval($request->quantity ?? 1));
 
-        if(isset($cart[$product->id])) {
-            $cart[$product->id]['quantity'] += $request->quantity;
+        if (isset($cart[$product->id])) {
+            $cart[$product->id]['quantity'] += $qty;
         } else {
             $cart[$product->id] = [
-                "name" => $product->name,
-                "quantity" => $request->quantity,
-                "price" => $product->price,
-                "image" => $product->image
+                "id"       => $product->id,
+                "name"     => $product->name,
+                "quantity" => $qty,
+                "price"    => $product->price,
+                "image"    => $product->image
             ];
         }
 
         session()->put('cart', $cart);
-        return redirect()->back()->with('success', 'تمت الإضافة للسلة!');
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'تمت الإضافة للسلة!',
+            'cart_count' => count($cart)
+        ]);
     }
 
-    // تحديث الكمية (AJAX)
+    // تحديث الكمية 
     public function update(Request $request)
     {
-        $cart = session()->get('cart');
-        if($request->id && $request->quantity){
-            $cart[$request->id]["quantity"] = max(1, $request->quantity);
+        $cart = session()->get('cart', []);
+        if (isset($cart[$request->id])) {
+            $cart[$request->id]["quantity"] = max(1, intval($request->quantity));
             session()->put('cart', $cart);
             return response()->json(['status' => 'success']);
         }
+        return response()->json(['status' => 'error'], 404);
     }
 
-    // حذف منتج (AJAX)
+    // حذف منتج واحد
     public function remove($id)
     {
-        $cart = session()->get('cart');
-        if(isset($cart[$id])) {
+        $cart = session()->get('cart', []);
+        if (isset($cart[$id])) {
             unset($cart[$id]);
             session()->put('cart', $cart);
         }
         return response()->json(['status' => 'success']);
     }
 
-    // إتمام الطلب (AJAX)
+    // إتمام الطلب 
     public function checkout(Request $request)
     {
-     
-    $request->validate([
-    'name'    => 'required',
-    'phone'   => 'required|unique:customer_carts,phone',
-    'email'   => 'required|email',
-    'address' => 'required',
-]);
-
+        $request->validate([
+            'name'    => 'required|min:3',
+            'phone'   => ['required', 'regex:/^(010|011|012|015)[0-9]{8}$|^(040)[0-9]{7}$/'],
+            'address' => 'required|min:10',
+        ], [
+            'name.required'    => 'اسمك مهم جداً لتسليم الطلب.',
+            'phone.required'   => 'رقم الهاتف مطلوب للتواصل معك.',
+            'phone.regex'      => 'رقم الهاتف يجب أن يكون (موبايل) أو (أرضي الغربية 040).',
+            'address.required' => 'أين نسلم الطلب؟ يرجى كتابة العنوان.',
+        ]);
 
         $cart = session()->get('cart', []);
-        if(!$cart) return response()->json(['status' => 'error', 'message' => 'السلة فارغة!'], 400);
+        if (empty($cart)) {
+            return response()->json(['status' => 'error', 'message' => 'سلتك فارغة حالياً!'], 400);
+        }
 
-        // حساب الإجمالي
-        $total = array_sum(array_map(fn($item) => $item['price'] * $item['quantity'], $cart));
+        // 2. حساب الإجمالي الكلي
+        $grandTotal = collect($cart)->sum(function($item) {
+            return $item['price'] * $item['quantity'];
+        });
 
-        // 1. حفظ الطلب الرئيسي
-        $order = CustomerCart::create($request->all() + ['total' => $total, 'status' => 'pending']);
+        // 3. تخزين الطلب في قاعدة البيانات
+        $order = CustomerCart::create($request->only('name', 'phone', 'address') + [
+            'total'  => $grandTotal,
+            'status' => 'pending'
+        ]);
 
-        // 2. حفظ المنتجات المرتبطة بالطلب
-        foreach($cart as $id => $item) {
-            CustomerCartOr::create([
+        // 4. تخزين  المنتجات 
+        $orderDetails = [];
+        foreach ($cart as $id => $item) {
+            $orderDetails[] = [
                 'customer_cart_id' => $order->id,
                 'product_name'     => $item['name'],
                 'quantity'         => $item['quantity'],
                 'price'            => $item['price'],
                 'total'            => $item['price'] * $item['quantity'],
-            ]);
+                'created_at'       => now(),
+                'updated_at'       => now(),
+            ];
         }
+        CustomerCartOr::insert($orderDetails);
 
-        // مسح السلة
+        // 5. تفريغ السلة
         session()->forget('cart');
 
-        return response()->json(['status' => 'success', 'message' => 'تم تسجيل طلبك بنجاح رقم: #' . $order->id]);
+        return response()->json([
+            'status'  => 'success',
+            'message' => 'تم استلام طلبك بنجاح رقم: #' . $order->id
+        ]);
     }
 
+    // مسح السلة بالكامل
     public function clear()
+<<<<<<< HEAD
 {
     session()->forget('cart');
     return redirect()->back()->with('success', 'تم مسح السلة');
 }
 
 }
+=======
+    {
+        session()->forget('cart');
+        return response()->json(['status' => 'success']);
+    }
+}
+>>>>>>> e0081a4 (update: improve cart, reservation, roles and UI)

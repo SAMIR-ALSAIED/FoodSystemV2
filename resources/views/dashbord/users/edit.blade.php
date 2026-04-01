@@ -58,7 +58,6 @@
                 </div>
               </div>
               @else
-              {{-- لو admin بس اعرض البيانات بدون تعديل --}}
               <div class="col-12">
                 <div class="form-group">
                   <label>اسم المستخدم</label>

@@ -15,13 +15,8 @@ return new class extends Migration
             $table->id();
               $table->string('name');
             $table->string('phone');
-            $table->string('email')->nullable();
             $table->string('address')->nullable();
-
-            // إجمالي السلة
             $table->decimal('total', 10, 2)->default(0);
-
-            // حالة السلة
             $table->enum('status', ['pending', 'completed'])
                   ->default('pending');
             $table->timestamps();

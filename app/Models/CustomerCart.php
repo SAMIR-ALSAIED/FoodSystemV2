@@ -12,7 +12,6 @@ class CustomerCart extends Model
     protected $fillable = [
         'name',
         'phone',
-        'email',
         'address',
         'total',
         'status',

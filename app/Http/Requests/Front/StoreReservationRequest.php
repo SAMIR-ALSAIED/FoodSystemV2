@@ -22,24 +22,32 @@ class StoreReservationRequest extends FormRequest
     public function rules(): array
     {
         return [
-                  'table_id' => 'required|exists:tables,id',
+ 
             'customer_name' => 'required|string|max:255',
-            'customer_phone' => 'required|string|max:20',
+           
+                'customer_phone' => [
+            'required',
+            'regex:/^(010|011|012)[0-9]{8}$/', 
+        ],
             'reservation_date' => 'required|date|after_or_equal:today',
             'reservation_time' => 'required',
+            'guest_count'=>'required|integer|min:1',
         ];
     }
-          public function messages()
-    {
-        return [
-            'table_id.required' => 'من فضلك اختر الطاولة',
-            'table_id.exists' => 'الطاولة غير موجودة',
-            'customer_name.required' => 'من فضلك أدخل الاسم',
-            'customer_phone.required' => 'من فضلك أدخل رقم الهاتف',
-            'reservation_date.required' => 'من فضلك اختر تاريخ الحجز',
-            'reservation_date.after_or_equal' => 'التاريخ يجب أن يكون اليوم أو بعده',
-            'reservation_time.required' => 'من فضلك اختر وقت الحجز',
-        ];
-    }
+   
+    public function messages()
+{
+    return [
+        'customer_name.required' => 'من فضلك أدخل الاسم',
+        'customer_phone.required' => 'من فضلك أدخل رقم الهاتف',
+        'customer_phone.regex' => 'رقم الهاتف يجب أن يبدأ بـ 010 أو 011 أو 012 ويكون 11 رقمًا صحيحًا',
+        'reservation_date.required' => 'من فضلك اختر تاريخ الحجز',
+        'reservation_date.after_or_equal' => 'التاريخ يجب أن يكون اليوم أو بعده',
+        'reservation_time.required' => 'من فضلك اختر وقت الحجز',
+        'guest_count.required' => 'من فضلك أدخل عدد الضيوف',
+        'guest_count.integer' => 'عدد الضيوف يجب أن يكون رقم صحيح',
+        'guest_count.min' => 'يجب أن يكون عدد الضيوف على الأقل 1',
+    ];
+}
 
 }

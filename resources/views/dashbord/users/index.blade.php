@@ -105,22 +105,28 @@
 
 
                     <td>
+                        
+        
+        
+
 
                  <a href="{{route('users.edit',$user->id)}}" class="btn btn-primary">
     <i class="fas fa-edit"></i>
 </a>
 
-@if(!$user->hasRole('admin'))
 
+
+
+@if(!$user->hasRole('admin'))
 <form action="{{route('users.destroy',$user->id)}}" method="POST" style="display:inline-block;">
     @csrf
     @method('DELETE')
-    <button type="submit" class="btn  btn-danger" >
+    <button type="submit" class="btn btn-danger">
         <i class="fas fa-trash"></i>
     </button>
 </form>
-
 @endif
+
                     </td>
                   </tr>
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 08, 2026 at 07:30 PM
+-- Generation Time: Apr 01, 2026 at 02:21 PM
 -- Server version: 8.4.3
 -- PHP Version: 8.3.26
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `food_system`
+-- Database: `food_system_v3`
 --
 
 -- --------------------------------------------------------
@@ -38,7 +38,7 @@ CREATE TABLE `cache` (
 --
 
 INSERT INTO `cache` (`key`, `value`, `expiration`) VALUES
-('laravel-cache-spatie.permission.cache', 'a:3:{s:5:\"alias\";a:4:{s:1:\"a\";s:2:\"id\";s:1:\"b\";s:4:\"name\";s:1:\"c\";s:10:\"guard_name\";s:1:\"r\";s:5:\"roles\";}s:11:\"permissions\";a:47:{i:0;a:4:{s:1:\"a\";i:1;s:1:\"b\";s:18:\"الاعدادات\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:1;a:4:{s:1:\"a\";i:2;s:1:\"b\";s:20:\"المستخدمين\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:2;a:4:{s:1:\"a\";i:3;s:1:\"b\";s:27:\"اضافة مستخدمين\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:3;a:4:{s:1:\"a\";i:4;s:1:\"b\";s:27:\"تعديل مستخدمين\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:4;a:4:{s:1:\"a\";i:5;s:1:\"b\";s:23:\"حذف مستخدمين\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:5;a:4:{s:1:\"a\";i:6;s:1:\"b\";s:27:\"عرض المستخدمين\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:6;a:4:{s:1:\"a\";i:7;s:1:\"b\";s:18:\"الصلاحيات\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:7;a:4:{s:1:\"a\";i:8;s:1:\"b\";s:23:\"اضافة صلاحية\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:8;a:4:{s:1:\"a\";i:9;s:1:\"b\";s:23:\"تعديل صلاحية\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:9;a:4:{s:1:\"a\";i:10;s:1:\"b\";s:19:\"حذف صلاحية\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:10;a:4:{s:1:\"a\";i:11;s:1:\"b\";s:27:\"اعدادت السيستم\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:11;a:4:{s:1:\"a\";i:12;s:1:\"b\";s:14:\"الاقسام\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:12;a:4:{s:1:\"a\";i:13;s:1:\"b\";s:17:\"اضافة صنف\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:13;a:4:{s:1:\"a\";i:14;s:1:\"b\";s:17:\"تعديل صنف\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:14;a:4:{s:1:\"a\";i:15;s:1:\"b\";s:13:\"حذف صنف\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:15;a:4:{s:1:\"a\";i:16;s:1:\"b\";s:13:\"عرض صنف\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:16;a:4:{s:1:\"a\";i:17;s:1:\"b\";s:16:\"المنتجات\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:17;a:4:{s:1:\"a\";i:18;s:1:\"b\";s:19:\"اضافة منتج\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:18;a:4:{s:1:\"a\";i:19;s:1:\"b\";s:19:\"تعديل منتج\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:19;a:4:{s:1:\"a\";i:20;s:1:\"b\";s:15:\"حذف منتج\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:20;a:4:{s:1:\"a\";i:21;s:1:\"b\";s:15:\"عرض منتج\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:21;a:4:{s:1:\"a\";i:22;s:1:\"b\";s:16:\"الطاولات\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:22;a:4:{s:1:\"a\";i:23;s:1:\"b\";s:23:\"اضافة طاولات\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:23;a:4:{s:1:\"a\";i:24;s:1:\"b\";s:23:\"تعديل طاولات\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:24;a:4:{s:1:\"a\";i:25;s:1:\"b\";s:19:\"حذف طاولات\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:25;a:4:{s:1:\"a\";i:26;s:1:\"b\";s:23:\"عرض الطاولات\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:26;a:4:{s:1:\"a\";i:27;s:1:\"b\";s:16:\"الحجوزات\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:5;}}i:27;a:4:{s:1:\"a\";i:28;s:1:\"b\";s:23:\"اضافة حجوزات\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:5;}}i:28;a:4:{s:1:\"a\";i:29;s:1:\"b\";s:23:\"تعديل حجوزات\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:5;}}i:29;a:4:{s:1:\"a\";i:30;s:1:\"b\";s:19:\"حذف حجوزات\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:30;a:4:{s:1:\"a\";i:31;s:1:\"b\";s:23:\"عرض الحجوزات\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:5;}}i:31;a:4:{s:1:\"a\";i:32;s:1:\"b\";s:14:\"الطلبات\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:32;a:4:{s:1:\"a\";i:33;s:1:\"b\";s:21:\"اضافة طلبات\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:33;a:4:{s:1:\"a\";i:34;s:1:\"b\";s:21:\"تعديل طلبات\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:34;a:4:{s:1:\"a\";i:35;s:1:\"b\";s:17:\"حذف طلبات\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:35;a:4:{s:1:\"a\";i:36;s:1:\"b\";s:21:\"عرض الطلبات\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:36;a:4:{s:1:\"a\";i:37;s:1:\"b\";s:30:\"تحديث حالة الطلب\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:37;a:4:{s:1:\"a\";i:38;s:1:\"b\";s:12:\"المطبخ\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:9;}}i:38;a:4:{s:1:\"a\";i:39;s:1:\"b\";s:30:\"عرض طلبات المطبخ\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:9;}}i:39;a:4:{s:1:\"a\";i:40;s:1:\"b\";s:45:\"تحديث حالة الطلب بالمطبخ\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:9;}}i:40;a:4:{s:1:\"a\";i:41;s:1:\"b\";s:16:\"التقارير\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:41;a:4:{s:1:\"a\";i:42;s:1:\"b\";s:23:\"عرض التقارير\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:42;a:4:{s:1:\"a\";i:43;s:1:\"b\";s:14:\"الكاشير\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:8;}}i:43;a:4:{s:1:\"a\";i:44;s:1:\"b\";s:23:\"لوحة المسوول\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:44;a:4:{s:1:\"a\";i:45;s:1:\"b\";s:26:\"اسليدر الموقع \";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:45;a:4:{s:1:\"a\";i:46;s:1:\"b\";s:25:\"الموقع للمطعم\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:46;a:4:{s:1:\"a\";i:50;s:1:\"b\";s:28:\"طالبات العملاء \";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:5;}}}s:5:\"roles\";a:4:{i:0;a:3:{s:1:\"a\";i:1;s:1:\"b\";s:5:\"admin\";s:1:\"c\";s:3:\"web\";}i:1;a:3:{s:1:\"a\";i:5;s:1:\"b\";s:6:\"waiter\";s:1:\"c\";s:3:\"web\";}i:2;a:3:{s:1:\"a\";i:9;s:1:\"b\";s:13:\"Kitchen Staff\";s:1:\"c\";s:3:\"web\";}i:3;a:3:{s:1:\"a\";i:8;s:1:\"b\";s:7:\"Cashier\";s:1:\"c\";s:3:\"web\";}}}', 1773084406);
+('laravel-cache-spatie.permission.cache', 'a:3:{s:5:\"alias\";a:4:{s:1:\"a\";s:2:\"id\";s:1:\"b\";s:4:\"name\";s:1:\"c\";s:10:\"guard_name\";s:1:\"r\";s:5:\"roles\";}s:11:\"permissions\";a:47:{i:0;a:4:{s:1:\"a\";i:1;s:1:\"b\";s:18:\"الاعدادات\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:1;a:4:{s:1:\"a\";i:2;s:1:\"b\";s:20:\"المستخدمين\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:2;a:4:{s:1:\"a\";i:3;s:1:\"b\";s:27:\"اضافة مستخدمين\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:3;a:4:{s:1:\"a\";i:4;s:1:\"b\";s:27:\"تعديل مستخدمين\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:4;a:4:{s:1:\"a\";i:5;s:1:\"b\";s:23:\"حذف مستخدمين\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:5;a:4:{s:1:\"a\";i:6;s:1:\"b\";s:27:\"عرض المستخدمين\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:6;a:4:{s:1:\"a\";i:7;s:1:\"b\";s:18:\"الصلاحيات\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:7;a:4:{s:1:\"a\";i:8;s:1:\"b\";s:23:\"اضافة صلاحية\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:8;a:4:{s:1:\"a\";i:9;s:1:\"b\";s:23:\"تعديل صلاحية\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:9;a:4:{s:1:\"a\";i:10;s:1:\"b\";s:19:\"حذف صلاحية\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:10;a:4:{s:1:\"a\";i:11;s:1:\"b\";s:27:\"اعدادت السيستم\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:11;a:4:{s:1:\"a\";i:12;s:1:\"b\";s:14:\"الاقسام\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:12;a:4:{s:1:\"a\";i:13;s:1:\"b\";s:17:\"اضافة صنف\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:13;a:4:{s:1:\"a\";i:14;s:1:\"b\";s:17:\"تعديل صنف\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:14;a:4:{s:1:\"a\";i:15;s:1:\"b\";s:13:\"حذف صنف\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:15;a:4:{s:1:\"a\";i:16;s:1:\"b\";s:13:\"عرض صنف\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:16;a:4:{s:1:\"a\";i:17;s:1:\"b\";s:16:\"المنتجات\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:17;a:4:{s:1:\"a\";i:18;s:1:\"b\";s:19:\"اضافة منتج\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:18;a:4:{s:1:\"a\";i:19;s:1:\"b\";s:19:\"تعديل منتج\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:19;a:4:{s:1:\"a\";i:20;s:1:\"b\";s:15:\"حذف منتج\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:20;a:4:{s:1:\"a\";i:21;s:1:\"b\";s:15:\"عرض منتج\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:21;a:4:{s:1:\"a\";i:22;s:1:\"b\";s:16:\"الطاولات\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:22;a:4:{s:1:\"a\";i:23;s:1:\"b\";s:23:\"اضافة طاولات\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:23;a:4:{s:1:\"a\";i:24;s:1:\"b\";s:23:\"تعديل طاولات\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:24;a:4:{s:1:\"a\";i:25;s:1:\"b\";s:19:\"حذف طاولات\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:25;a:4:{s:1:\"a\";i:26;s:1:\"b\";s:23:\"عرض الطاولات\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:26;a:4:{s:1:\"a\";i:27;s:1:\"b\";s:16:\"الحجوزات\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:5;}}i:27;a:4:{s:1:\"a\";i:28;s:1:\"b\";s:23:\"اضافة حجوزات\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:5;}}i:28;a:4:{s:1:\"a\";i:29;s:1:\"b\";s:23:\"تعديل حجوزات\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:5;}}i:29;a:4:{s:1:\"a\";i:30;s:1:\"b\";s:19:\"حذف حجوزات\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:30;a:4:{s:1:\"a\";i:31;s:1:\"b\";s:23:\"عرض الحجوزات\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:5;}}i:31;a:4:{s:1:\"a\";i:32;s:1:\"b\";s:14:\"الطلبات\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:32;a:4:{s:1:\"a\";i:33;s:1:\"b\";s:21:\"اضافة طلبات\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:33;a:4:{s:1:\"a\";i:34;s:1:\"b\";s:21:\"تعديل طلبات\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:34;a:4:{s:1:\"a\";i:35;s:1:\"b\";s:17:\"حذف طلبات\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:35;a:4:{s:1:\"a\";i:36;s:1:\"b\";s:21:\"عرض الطلبات\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:36;a:4:{s:1:\"a\";i:37;s:1:\"b\";s:30:\"تحديث حالة الطلب\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:37;a:4:{s:1:\"a\";i:38;s:1:\"b\";s:12:\"المطبخ\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:12;}}i:38;a:4:{s:1:\"a\";i:39;s:1:\"b\";s:30:\"عرض طلبات المطبخ\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:12;}}i:39;a:4:{s:1:\"a\";i:40;s:1:\"b\";s:45:\"تحديث حالة الطلب بالمطبخ\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:12;}}i:40;a:4:{s:1:\"a\";i:41;s:1:\"b\";s:16:\"التقارير\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:41;a:4:{s:1:\"a\";i:42;s:1:\"b\";s:23:\"عرض التقارير\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:42;a:4:{s:1:\"a\";i:43;s:1:\"b\";s:14:\"الكاشير\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:8;}}i:43;a:4:{s:1:\"a\";i:44;s:1:\"b\";s:23:\"لوحة المسوول\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:44;a:4:{s:1:\"a\";i:45;s:1:\"b\";s:26:\"اسليدر الموقع \";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:45;a:4:{s:1:\"a\";i:46;s:1:\"b\";s:25:\"الموقع للمطعم\";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:1:{i:0;i:1;}}i:46;a:4:{s:1:\"a\";i:50;s:1:\"b\";s:28:\"طالبات العملاء \";s:1:\"c\";s:3:\"web\";s:1:\"r\";a:2:{i:0;i:1;i:1;i:5;}}}s:5:\"roles\";a:4:{i:0;a:3:{s:1:\"a\";i:1;s:1:\"b\";s:5:\"admin\";s:1:\"c\";s:3:\"web\";}i:1;a:3:{s:1:\"a\";i:5;s:1:\"b\";s:6:\"waiter\";s:1:\"c\";s:3:\"web\";}i:2;a:3:{s:1:\"a\";i:12;s:1:\"b\";s:12:\"KitchenStaff\";s:1:\"c\";s:3:\"web\";}i:3;a:3:{s:1:\"a\";i:8;s:1:\"b\";s:7:\"Cashier\";s:1:\"c\";s:3:\"web\";}}}', 1775139074);
 
 -- --------------------------------------------------------
 
@@ -76,8 +76,7 @@ INSERT INTO `categories` (`id`, `name`, `created_at`, `updated_at`) VALUES
 (14, 'سلطات', '2026-02-09 21:21:34', '2026-02-09 21:21:34'),
 (15, 'مشروبات', '2026-02-09 21:21:53', '2026-02-09 21:21:53'),
 (16, 'الحلو', '2026-02-09 21:22:07', '2026-02-09 21:22:07'),
-(25, 'المقبلات', '2026-02-20 13:54:56', '2026-02-20 13:54:56'),
-(26, 'البيتزا', '2026-02-20 13:55:53', '2026-02-20 13:55:53');
+(25, 'المقبلات', '2026-02-20 13:54:56', '2026-02-20 13:54:56');
 
 -- --------------------------------------------------------
 
@@ -87,12 +86,12 @@ INSERT INTO `categories` (`id`, `name`, `created_at`, `updated_at`) VALUES
 
 CREATE TABLE `customer_carts` (
   `id` bigint UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `phone` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `total` decimal(10,2) NOT NULL DEFAULT '0.00',
-  `status` enum('pending','completed') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'pending',
+  `status` enum('pending','completed') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'pending',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -102,8 +101,9 @@ CREATE TABLE `customer_carts` (
 --
 
 INSERT INTO `customer_carts` (`id`, `name`, `phone`, `email`, `address`, `total`, `status`, `created_at`, `updated_at`) VALUES
-(29, 'باشمهندس  مصطفى محفوظ', '01225399122', 'mostafa@gamail.com', 'القاهرة', 475.00, 'completed', '2026-02-20 14:05:40', '2026-02-20 14:07:12'),
-(30, 'باشمهندس محمد غنيم', '01225399133', 'mohamed@gmail.com', 'طنطا', 340.00, 'completed', '2026-02-20 14:07:01', '2026-02-20 14:07:08');
+(55, 'SAMIR ElSayed', '01225399159', NULL, 'الاستاد  برج الزهراء', 20.00, 'pending', '2026-03-27 23:46:10', '2026-03-27 23:46:10'),
+(56, 'Rhoda Warner', '01225399114', NULL, 'Velit sint earum mai', 120.00, 'pending', '2026-03-27 23:49:24', '2026-03-27 23:49:24'),
+(57, 'Kimberley Craig', '01225399159', NULL, 'Quia explicabo Labo', 260.00, 'pending', '2026-03-28 02:56:16', '2026-03-28 02:56:16');
 
 -- --------------------------------------------------------
 
@@ -114,7 +114,7 @@ INSERT INTO `customer_carts` (`id`, `name`, `phone`, `email`, `address`, `total`
 CREATE TABLE `customer_cart_ors` (
   `id` bigint UNSIGNED NOT NULL,
   `customer_cart_id` bigint UNSIGNED NOT NULL,
-  `product_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `product_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `quantity` int NOT NULL,
   `price` decimal(8,2) NOT NULL,
   `total` decimal(8,2) NOT NULL,
@@ -127,13 +127,16 @@ CREATE TABLE `customer_cart_ors` (
 --
 
 INSERT INTO `customer_cart_ors` (`id`, `customer_cart_id`, `product_name`, `quantity`, `price`, `total`, `created_at`, `updated_at`) VALUES
-(26, 29, 'ساندوتش كفتة فراخ', 10, 30.00, 300.00, '2026-02-20 14:05:40', '2026-02-20 14:05:40'),
-(27, 29, 'ساندوتش دجاج بانيه مع جبنة موتزاريلا', 1, 35.00, 35.00, '2026-02-20 14:05:40', '2026-02-20 14:05:40'),
-(28, 29, 'نص فرخه مشويه', 1, 100.00, 100.00, '2026-02-20 14:05:40', '2026-02-20 14:05:40'),
-(29, 29, 'أرز مسلوق', 1, 40.00, 40.00, '2026-02-20 14:05:40', '2026-02-20 14:05:40'),
-(30, 30, 'ساندوتش دجاج بانيه مع جبنة موتزاريلا', 4, 35.00, 140.00, '2026-02-20 14:07:01', '2026-02-20 14:07:01'),
-(31, 30, 'كوكاكولا علب', 5, 20.00, 100.00, '2026-02-20 14:07:01', '2026-02-20 14:07:01'),
-(32, 30, 'ارز باللبن', 5, 20.00, 100.00, '2026-02-20 14:07:01', '2026-02-20 14:07:01');
+(72, 55, 'ساندوتش كفتة مشوية', 1, 20.00, 20.00, '2026-03-27 23:46:10', '2026-03-27 23:46:10'),
+(73, 56, 'ساندوتش كفتة مشوية', 3, 20.00, 60.00, '2026-03-27 23:49:24', '2026-03-27 23:49:24'),
+(74, 56, 'ساندوتش دجاج بانيه', 2, 30.00, 60.00, '2026-03-27 23:49:24', '2026-03-27 23:49:24'),
+(75, 57, 'أرز بالخلطه', 1, 40.00, 40.00, '2026-03-28 02:56:16', '2026-03-28 02:56:16'),
+(76, 57, 'أرز مسلوق', 1, 40.00, 40.00, '2026-03-28 02:56:16', '2026-03-28 02:56:16'),
+(77, 57, 'مكرونه اسباجتي باللحمه المفرومه', 1, 60.00, 60.00, '2026-03-28 02:56:16', '2026-03-28 02:56:16'),
+(78, 57, 'مكرونه بالبشاميل واللحمه المفرومه بالفرن', 1, 50.00, 50.00, '2026-03-28 02:56:16', '2026-03-28 02:56:16'),
+(79, 57, 'شوربة لسان عصفور', 1, 30.00, 30.00, '2026-03-28 02:56:16', '2026-03-28 02:56:16'),
+(80, 57, 'عصير ليمون', 1, 20.00, 20.00, '2026-03-28 02:56:16', '2026-03-28 02:56:16'),
+(81, 57, 'ارز باللبن', 1, 20.00, 20.00, '2026-03-28 02:56:16', '2026-03-28 02:56:16');
 
 -- --------------------------------------------------------
 
@@ -251,7 +254,7 @@ INSERT INTO `model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
 (1, 'App\\Models\\User', 1),
 (5, 'App\\Models\\User', 3),
 (8, 'App\\Models\\User', 4),
-(9, 'App\\Models\\User', 5);
+(12, 'App\\Models\\User', 7);
 
 -- --------------------------------------------------------
 
@@ -515,14 +518,12 @@ INSERT INTO `order_items` (`id`, `order_id`, `product_id`, `quantity`, `price`, 
 (356, 114, 23, 1, 30.00, '2026-02-15 17:14:24', '2026-02-15 17:14:24'),
 (358, 114, 30, 1, 150.00, '2026-02-15 17:14:24', '2026-02-15 17:14:24'),
 (359, 114, 29, 1, 100.00, '2026-02-15 17:14:24', '2026-02-15 17:14:24'),
-(429, 132, 31, 1, 200.00, '2026-02-15 22:04:33', '2026-02-15 22:04:33'),
 (430, 132, 37, 1, 20.00, '2026-02-15 22:04:33', '2026-02-15 22:04:33'),
 (431, 132, 38, 1, 200.00, '2026-02-15 22:04:33', '2026-02-15 22:04:33'),
 (432, 133, 21, 1, 20.00, '2026-02-15 22:07:43', '2026-02-15 22:07:43'),
 (434, 134, 36, 1, 5.00, '2026-02-15 22:08:35', '2026-02-15 22:08:35'),
 (435, 134, 43, 1, 70.00, '2026-02-15 22:08:35', '2026-02-15 22:08:35'),
 (436, 134, 44, 1, 30.00, '2026-02-15 22:08:35', '2026-02-15 22:08:35'),
-(437, 135, 31, 1, 200.00, '2026-02-15 22:10:48', '2026-02-15 22:10:48'),
 (438, 136, 37, 1, 20.00, '2026-02-15 22:10:54', '2026-02-15 22:10:54'),
 (439, 137, 53, 1, 20.00, '2026-02-15 22:11:23', '2026-02-15 22:11:23'),
 (440, 137, 48, 1, 8.00, '2026-02-15 22:11:23', '2026-02-15 22:11:23'),
@@ -546,7 +547,6 @@ INSERT INTO `order_items` (`id`, `order_id`, `product_id`, `quantity`, `price`, 
 (460, 142, 37, 1, 20.00, '2026-02-15 22:22:51', '2026-02-15 22:22:51'),
 (461, 143, 38, 1, 200.00, '2026-02-15 22:31:56', '2026-02-15 22:31:56'),
 (462, 143, 32, 1, 60.00, '2026-02-15 22:31:56', '2026-02-15 22:31:56'),
-(463, 143, 31, 1, 200.00, '2026-02-15 22:31:56', '2026-02-15 22:31:56'),
 (464, 144, 26, 1, 27.00, '2026-02-15 22:32:05', '2026-02-15 22:32:05'),
 (465, 145, 38, 1, 200.00, '2026-02-15 22:36:52', '2026-02-15 22:36:52'),
 (466, 145, 36, 1, 5.00, '2026-02-15 22:36:52', '2026-02-15 22:36:52'),
@@ -558,11 +558,9 @@ INSERT INTO `order_items` (`id`, `order_id`, `product_id`, `quantity`, `price`, 
 (472, 148, 25, 1, 40.00, '2026-02-15 23:30:45', '2026-02-15 23:30:45'),
 (473, 148, 24, 1, 25.00, '2026-02-15 23:30:45', '2026-02-15 23:30:45'),
 (474, 148, 30, 1, 150.00, '2026-02-15 23:30:45', '2026-02-15 23:30:45'),
-(475, 148, 31, 1, 200.00, '2026-02-15 23:30:45', '2026-02-15 23:30:45'),
 (476, 148, 26, 1, 27.00, '2026-02-15 23:30:45', '2026-02-15 23:30:45'),
 (477, 149, 26, 1, 27.00, '2026-02-15 23:36:54', '2026-02-15 23:36:54'),
 (478, 149, 25, 1, 40.00, '2026-02-15 23:36:54', '2026-02-15 23:36:54'),
-(479, 149, 31, 2, 200.00, '2026-02-15 23:36:54', '2026-02-15 23:36:54'),
 (480, 149, 30, 1, 150.00, '2026-02-15 23:36:54', '2026-02-15 23:36:54'),
 (481, 149, 36, 2, 5.00, '2026-02-15 23:36:54', '2026-02-15 23:36:54'),
 (482, 149, 34, 1, 10.00, '2026-02-15 23:36:54', '2026-02-15 23:36:54'),
@@ -589,7 +587,6 @@ INSERT INTO `order_items` (`id`, `order_id`, `product_id`, `quantity`, `price`, 
 (507, 152, 23, 1, 30.00, '2026-02-16 07:14:32', '2026-02-16 07:14:32'),
 (508, 153, 21, 1, 20.00, '2026-02-16 07:24:32', '2026-02-16 07:24:32'),
 (510, 153, 23, 1, 30.00, '2026-02-16 07:24:32', '2026-02-16 07:24:32'),
-(511, 153, 31, 1, 200.00, '2026-02-16 07:24:32', '2026-02-16 07:24:32'),
 (512, 153, 32, 1, 60.00, '2026-02-16 07:24:32', '2026-02-16 07:24:32'),
 (513, 153, 53, 1, 20.00, '2026-02-16 07:24:32', '2026-02-16 07:24:32'),
 (514, 153, 46, 2, 20.00, '2026-02-16 07:24:32', '2026-02-16 07:24:32'),
@@ -699,7 +696,6 @@ INSERT INTO `order_items` (`id`, `order_id`, `product_id`, `quantity`, `price`, 
 (623, 188, 27, 1, 30.00, '2026-02-16 23:49:09', '2026-02-16 23:49:09'),
 (624, 188, 26, 1, 27.00, '2026-02-16 23:49:09', '2026-02-16 23:49:09'),
 (625, 188, 21, 1, 20.00, '2026-02-16 23:49:09', '2026-02-16 23:49:09'),
-(626, 188, 31, 1, 200.00, '2026-02-16 23:49:09', '2026-02-16 23:49:09'),
 (627, 188, 37, 1, 20.00, '2026-02-16 23:49:09', '2026-02-16 23:49:09'),
 (628, 188, 36, 1, 5.00, '2026-02-16 23:49:09', '2026-02-16 23:49:09'),
 (629, 188, 38, 1, 200.00, '2026-02-16 23:49:09', '2026-02-16 23:49:09'),
@@ -805,7 +801,6 @@ INSERT INTO `order_items` (`id`, `order_id`, `product_id`, `quantity`, `price`, 
 (915, 236, 29, 1, 100.00, '2026-02-20 14:02:38', '2026-02-20 14:02:38'),
 (916, 236, 26, 3, 27.00, '2026-02-20 14:02:38', '2026-02-20 14:02:38'),
 (917, 236, 25, 1, 40.00, '2026-02-20 14:02:38', '2026-02-20 14:02:38'),
-(918, 236, 31, 2, 200.00, '2026-02-20 14:02:38', '2026-02-20 14:02:38'),
 (919, 236, 36, 1, 5.00, '2026-02-20 14:02:38', '2026-02-20 14:02:38'),
 (920, 236, 33, 1, 10.00, '2026-02-20 14:02:38', '2026-02-20 14:02:38'),
 (921, 236, 39, 2, 40.00, '2026-02-20 14:02:38', '2026-02-20 14:02:38'),
@@ -967,7 +962,6 @@ INSERT INTO `products` (`id`, `name`, `category_id`, `image`, `price`, `cost_pri
 (28, 'ساندوتش دجاج بانيه مع جبنة موتزاريلا', 10, '1770672584_فراخ_بانيه_بالموزاريلا.jpg', 35, 0.00, '2026-02-09 21:29:44', '2026-02-09 21:29:44'),
 (29, 'نص فرخه مشويه', 12, '1770672665_نص_فرخه_مشويه.jpg', 100, 0.00, '2026-02-09 21:31:05', '2026-02-09 21:31:05'),
 (30, 'سجق فراخ مشوى', 12, '1770672727_سجق_فراخ_مشوى.jpg', 150, 0.00, '2026-02-09 21:32:07', '2026-02-09 21:32:07'),
-(31, 'حمام مشوي', 12, '1770672768_حمام_مشوي.jpg', 200, 0.00, '2026-02-09 21:32:48', '2026-02-09 21:32:48'),
 (32, 'ربع ورك فرخه مشويه', 12, '1770672837_نص_فرخه_مشويه.jpg', 60, 0.00, '2026-02-09 21:33:57', '2026-02-09 21:33:57'),
 (33, 'طحينة', 14, '1770672959_طحينة.jpg', 10, 0.00, '2026-02-09 21:35:59', '2026-02-09 21:35:59'),
 (34, 'سلطة بلدى', 14, '1770672991_سلطة_بلدى.jpg', 10, 0.00, '2026-02-09 21:36:31', '2026-02-09 21:36:31'),
@@ -1015,11 +1009,10 @@ CREATE TABLE `reservations` (
 --
 
 INSERT INTO `reservations` (`id`, `customer_name`, `phone`, `guest_count`, `table_id`, `status`, `datetime`, `created_at`, `updated_at`) VALUES
-(13, 'باشمهندس اسلام', '01225399159', 1, 5, 'تم الحجز', '2026-02-10 04:06:00', '2026-02-10 02:06:57', '2026-02-10 16:23:43'),
-(16, 'باشمهندس عبد الله', '01225399159', 1, 10, 'تم الحجز', '2026-02-10 18:24:00', '2026-02-10 16:24:12', '2026-02-13 02:49:57'),
-(17, 'باشمهندس زياد', '01225399159', 1, 3, 'تم الحجز', '2026-02-10 19:14:00', '2026-02-10 17:14:35', '2026-02-12 23:18:02'),
-(19, 'علاء', '01225399114', 1, 14, 'تم الحجز', '2026-02-20 16:08:00', '2026-02-20 14:08:16', '2026-02-20 14:11:36'),
-(29, 'Aimee Figueroa', '01225399114', 1, 3, 'في الانتظار', '2026-03-02 07:26:00', '2026-03-02 13:17:24', '2026-03-02 13:17:24');
+(13, 'ابراهيم', '01225399159', 1, 5, 'تم الحجز', '2026-02-10 04:06:00', '2026-02-10 02:06:57', '2026-03-22 14:33:31'),
+(16, 'عبد الله', '01225399159', 1, 10, 'تم الحجز', '2026-02-10 18:24:00', '2026-02-10 16:24:12', '2026-03-22 14:33:21'),
+(17, 'محمد هانى', '01225399159', 1, 3, 'تم الحجز', '2026-02-10 19:14:00', '2026-02-10 17:14:35', '2026-03-22 14:33:15'),
+(19, 'علاء', '01225399114', 1, 14, 'تم الحجز', '2026-02-20 16:08:00', '2026-02-20 14:08:16', '2026-02-20 14:11:36');
 
 -- --------------------------------------------------------
 
@@ -1043,7 +1036,7 @@ INSERT INTO `roles` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) VAL
 (1, 'admin', 'web', '2026-02-03 21:57:17', '2026-02-03 21:57:17'),
 (5, 'waiter', 'web', '2026-02-03 23:16:23', '2026-02-03 23:16:23'),
 (8, 'Cashier', 'web', '2026-02-03 23:46:16', '2026-02-03 23:46:16'),
-(9, 'Kitchen Staff', 'web', '2026-02-03 23:48:46', '2026-02-03 23:48:46');
+(12, 'KitchenStaff', 'web', '2026-03-22 14:39:42', '2026-03-22 14:39:42');
 
 -- --------------------------------------------------------
 
@@ -1114,9 +1107,9 @@ INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 (31, 5),
 (50, 5),
 (43, 8),
-(38, 9),
-(39, 9),
-(40, 9);
+(38, 12),
+(39, 12),
+(40, 12);
 
 -- --------------------------------------------------------
 
@@ -1138,12 +1131,9 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('j8irxphfKYiN1DzNIJX2NEm4vEH8BQJu27syZvh0', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiWE5Na2Q1MncwUHdwMWFJMk83cmhIUzRvcFFBd0FRV1RiNVU5cjdxbCI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6NDU6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9kYXNoYm9yZC9vcmRlcnMvY2FzaGllciI7czo1OiJyb3V0ZSI7czoxNDoib3JkZXJzLmNhc2hpZXIiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjM6InVybCI7YTowOnt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTt9', 1772716196),
-('LloEuS600yCNYGfnLsiWp4GxVF92AltneLEbYKJo', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiZHVIUGFPQUQ0MXpIZjZ5TUlDVHZSeXR4cHNlaEhUOGNzZTdFNk9OayI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MzE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9kYXNoYm9hcmQiO3M6NToicm91dGUiO3M6OToiZGFzaGJvYXJkIjt9czozOiJ1cmwiO2E6MDp7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7fQ==', 1772459684),
-('vDjT7TvvYyqYyGoyvlvsF3Ybnym3ILL8hOEEAGZ2', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoienlZWENVU3dlTWtuZkpBeFd0NExSZDc5SGptazc0V1h2VEVsdW9ycSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6NDU6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9kYXNoYm9yZC9vcmRlcnMva2l0Y2hlbiI7czo1OiJyb3V0ZSI7czoxNDoib3JkZXJzLmtpdGNoZW4iO31zOjM6InVybCI7YTowOnt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTt9', 1772470758),
-('y6F74YSS7y2wj8ilde2RKXhZOA6v2DC5JYO0WRxk', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiQ3BQNVl0aUo1VlpLbUFDQ0xUQkdLZkE4QVdOMDJvVWxMTjR5VEIwaSI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7czo1OiJyb3V0ZSI7czoxMDoiZnJvbnQuaG9tZSI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1772997993),
-('yuWZyhhkkCj6sLzZk8IxiPx5fusxu8T0mum2oIqj', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiSXptcGhwMTc5aVFuNlJ4clc2b2JiQ2JpR0kzWFBoSlhYNk1DSzRlSiI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjI6e3M6MzoidXJsIjtzOjMxOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvZGFzaGJvYXJkIjtzOjU6InJvdXRlIjtzOjk6ImRhc2hib2FyZCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7fQ==', 1772998006),
-('zftDkfz6agCLf9EEoX35fs5K4rxWlZSeLZ9Jbcfk', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiODVCYjBlOHlVRGZ3MnpEVmptMUVWWEZibkJNbEwzYmlUTERzd3VLUyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6NDY6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9kYXNoYm9yZC9wcm9kdWN0cz9wYWdlPTMiO3M6NToicm91dGUiO3M6MTQ6InByb2R1Y3RzLmluZGV4Ijt9czozOiJ1cmwiO2E6MDp7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7fQ==', 1772458523);
+('IXk2Bgmb0YSbA3LLuKC9898wtHWe8zexDFK9Xtow', NULL, '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Mobile Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoidXdiYWthYWliMGFLQ0drUlpjZ1d3M2p3Mzl1dVBGVzRYdm9WRXFHUiI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MjY6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9tZW51IjtzOjU6InJvdXRlIjtzOjEwOiJmcm9udC5tZW51Ijt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo0OiJjYXJ0IjthOjI6e2k6MjE7YTo1OntzOjI6ImlkIjtpOjIxO3M6NDoibmFtZSI7czozNDoi2LPYp9mG2K/ZiNiq2LQg2YPZgdiq2Kkg2YXYtNmI2YrYqSI7czo4OiJxdWFudGl0eSI7aToxO3M6NToicHJpY2UiO2Q6MjA7czo1OiJpbWFnZSI7czozNDoiMTc3MDY3MjIyNV/Zg9mB2KrYqV/Zhdi02YjZitipLmpwZyI7fWk6MjM7YTo1OntzOjI6ImlkIjtpOjIzO3M6NDoibmFtZSI7czozNDoi2LPYp9mG2K/ZiNiq2LQg2K/YrNin2Kwg2KjYp9mG2YrZhyI7czo4OiJxdWFudGl0eSI7aToxO3M6NToicHJpY2UiO2Q6MzA7czo1OiJpbWFnZSI7czozNDoiMTc3MDY3MjMxMV/Zgdix2KfYrl/YqNin2YbZitmHLmpwZyI7fX19', 1774695876),
+('nvmN8e9ncOHEjTG4SR7F126MMDjnrNrHDbvWasBD', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiWjQ5eGxFUThhTjhpazNJT0pENjNyeFhLeTVDUVVsTW1uMWg4REVhSiI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7czo1OiJyb3V0ZSI7czoxMDoiZnJvbnQuaG9tZSI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1774727904),
+('Z8FwoDQL5EekkXAxHFMRADZzXS23Xo4glBCTjOKY', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoidEZrdlFKeGw0dDE3aTBDWXhUbFRFMHRFeUtlYVdrSlFOa2I3UlpmSSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MzE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9kYXNoYm9hcmQiO3M6NToicm91dGUiO3M6OToiZGFzaGJvYXJkIjt9czozOiJ1cmwiO2E6MDp7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7fQ==', 1775053254);
 
 -- --------------------------------------------------------
 
@@ -1177,8 +1167,7 @@ CREATE TABLE `sliders` (
 --
 
 INSERT INTO `sliders` (`id`, `big_title`, `small_title`, `image`, `created_at`, `updated_at`) VALUES
-(3, 'متعة الطعم في كل وجبة', 'استمتع بأشهى المأكولات مع كل لقمة', '1770670650_bg.png', '2026-02-09 20:57:30', '2026-02-09 20:57:30'),
-(4, 'إكتشف وأوردر أحلى الأكلات', NULL, '1770670792_bg2.jpg', '2026-02-09 20:59:52', '2026-02-09 20:59:52');
+(3, 'متعة الطعم في كل وجبة', 'استمتع بأشهى المأكولات مع كل لقمة', '1770670650_bg.png', '2026-02-09 20:57:30', '2026-02-09 20:57:30');
 
 -- --------------------------------------------------------
 
@@ -1201,16 +1190,16 @@ CREATE TABLE `tables` (
 --
 
 INSERT INTO `tables` (`id`, `number`, `min_guests`, `max_guests`, `status`, `created_at`, `updated_at`) VALUES
-(3, 'T1', 1, 4, 'متاحة', '2026-02-10 02:03:21', '2026-03-02 12:15:27'),
+(3, 'T1', 1, 4, 'متاحة', '2026-02-10 02:03:21', '2026-03-28 00:26:18'),
 (4, 'T2', 2, 4, 'محجوزة', '2026-02-10 02:03:39', '2026-02-17 19:53:02'),
-(5, 'T3', 2, 5, 'محجوزة', '2026-02-10 02:04:01', '2026-02-10 16:23:43'),
+(5, 'T3', 2, 5, 'محجوزة', '2026-02-10 02:04:01', '2026-03-22 14:33:31'),
 (6, 'T4', 2, 3, 'محجوزة', '2026-02-10 02:04:16', '2026-02-10 17:18:38'),
 (7, 'T5', 1, 2, 'محجوزة', '2026-02-10 02:04:39', '2026-02-13 02:52:11'),
 (8, 'T6', 2, 4, 'محجوزة', '2026-02-10 02:05:05', '2026-02-15 17:05:26'),
 (9, 'T7', 1, 5, 'محجوزة', '2026-02-10 02:05:29', '2026-02-15 17:14:24'),
-(10, 'T8', 1, 8, 'متاحة', '2026-02-10 02:05:48', '2026-03-02 12:15:11'),
+(10, 'T8', 1, 8, 'محجوزة', '2026-02-10 02:05:48', '2026-03-22 14:33:21'),
 (11, 'T9', 4, 6, 'محجوزة', '2026-02-10 02:06:11', '2026-02-20 14:00:09'),
-(13, 'T11', 1, 3, 'متاحة', '2026-02-17 01:06:56', '2026-03-02 12:15:37'),
+(13, 'T11', 1, 3, 'متاحة', '2026-02-17 01:06:56', '2026-03-28 00:14:23'),
 (14, 'T12', 1, 4, 'محجوزة', '2026-02-20 14:01:28', '2026-02-20 14:11:36');
 
 -- --------------------------------------------------------
@@ -1235,10 +1224,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'سمير', 'samir@gmail.com', NULL, '$2y$12$knRXUcql1slrjGTXxQ6M4eRXhkWRhLj6gqycj4VlQnFpD5mf8tXSS', 'ZfScJtnlyTYQH0yfyEAlw2Fmiv2Ij5NPbbcd6LCY85uRLsgvtSalTJVr4cNP', '2026-02-03 21:57:18', '2026-02-27 14:02:42'),
+(1, 'سمير', 'samir@gmail.com', NULL, '$2y$12$knRXUcql1slrjGTXxQ6M4eRXhkWRhLj6gqycj4VlQnFpD5mf8tXSS', 'SLAhqnq3qVEdhVT0yra4KtXyz5dRfp8JiZ7eb2CA6qw39nMJCO4htnKcLoAx', '2026-02-03 21:57:18', '2026-02-27 14:02:42'),
 (3, 'ahmed', 'ahmed@gamil.com', NULL, '$2y$12$7pzr14cQscXLes1pnze5C.YN6V3LqNruTNyoBmITbS/Ds0tvqsH1S', '6rLC4XYoav39NZAgxXimYjE2nQari8HYYbKhhxr3oPWEDMbzGYOsjQ0wRK5t', '2026-02-03 22:42:13', '2026-02-20 14:20:12'),
-(4, 'محمد', 'mohamed@gamil.com', NULL, '$2y$12$W26g1tOJiw9kyYH4TwPFpedjypd0ky81eINqXSwmYRJg1rL8BjQC6', 'XGR0AEXWeI1jgrsT8fqMLwq2Pjt6Q3HtWpcuUGneykcj5J3eIcjWYhVIpt2S', '2026-02-03 23:21:48', '2026-02-16 22:00:02'),
-(5, 'على', 'ali@gamil.com', NULL, '$2y$12$LRse3Nlv0fzn8IiPWC7rCOz3wQ3a/UIsg7O0RLe.cOn0YzI47t91i', NULL, '2026-02-03 23:49:10', '2026-03-02 12:16:35');
+(4, 'محمد', 'mohamed@gmail.com', NULL, '$2y$12$R6kqqnjgCcujXn8hwjxAJOht53..T.IpD7sXUg9U.DgjkqZlVG.Be', '8hexuoMbGCrt3BtT1IZr41D65rj9aAO7F82a8oPzAjki0PrXWSCXPJbgZ8h9', '2026-02-03 23:21:48', '2026-03-22 14:28:28'),
+(7, 'على', 'ali@gmail.com', NULL, '$2y$12$zn3Ak/QQQy10ChVM4kQ3IeRYcteVbYFEo2Q75eqUCV4nKJ8k1o7Um', NULL, '2026-03-22 14:42:06', '2026-03-22 14:42:06');
 
 --
 -- Indexes for dumped tables
@@ -1414,19 +1403,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `customer_carts`
 --
 ALTER TABLE `customer_carts`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT for table `customer_cart_ors`
 --
 ALTER TABLE `customer_cart_ors`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -1474,13 +1463,13 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `reservations`
 --
 ALTER TABLE `reservations`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `settings`
@@ -1504,7 +1493,7 @@ ALTER TABLE `tables`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables

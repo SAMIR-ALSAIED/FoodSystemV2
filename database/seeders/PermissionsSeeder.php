@@ -13,8 +13,7 @@ class PermissionsSeeder extends Seeder
      */
     public function run(): void
     {
-
-            $permissions = [
+        $permissions = [
             // المستخدمين
             'المستخدمين' => [
                 'الاعدادات',
@@ -78,7 +77,11 @@ class PermissionsSeeder extends Seeder
                 'حذف طلبات',
                 'عرض الطلبات',
                 'تحديث حالة الطلب',
+                
             ],
+
+        
+
 
             // المطبخ
             'المطبخ' => [
@@ -99,22 +102,25 @@ class PermissionsSeeder extends Seeder
             ],
 
             // لوحة التحكم والموقع
-              [
+            'لوحة التحكم والموقع' => [
                 'لوحة المسوول',
                 'اسليدر الموقع',
                 'الاعدادات الموقع'
             ],
 
-            // الموقع للمطعم -
+            // الموقع للمطعم
             'الموقع للمطعم' => [
+                // ممكن تضيف صلاحيات هنا لو حبيت
             ],
         ];
 
-        foreach ($permissions as $perm) {
-            Permission::firstOrCreate([
-                'name' => $perm,
-                'guard_name' => 'web'
-            ]);
+        foreach ($permissions as $group => $perms) {
+            foreach ($perms as $perm) {
+                Permission::firstOrCreate([
+                    'name' => $perm,
+                    'guard_name' => 'web'
+                ]);
+            }
         }
     }
 }

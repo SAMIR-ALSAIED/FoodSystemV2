@@ -24,16 +24,13 @@ class ReservationController extends Controller
 public function store(AddReservationRequest $request) {
     $data = $request->validated();
 
-    // تحقق أن الطاولة متاحة
     $table = Table::find($data['table_id']);
     if ($table->status !== 'متاحة') {
         return redirect()->back()->with('error', 'هذه الطاولة محجوزة بالفعل');
     }
 
-    // إنشاء الحجز
     Reservation::create($data);
 
-    // تحديث حالة الطاولة إلى محجوزة
     $table->update(['status' => 'محجوزة']);
 
     return redirect()->route('reservations.index')->with('success', 'تم إضافة الحجز بنجاح');
@@ -49,18 +46,15 @@ public function store(AddReservationRequest $request) {
   public function update(UpdateReservationRequest $request, Reservation $reservation) {
     $data = $request->validated();
 
-    // تحديث حالة الطاولة القديمة إلى متاحة
     $oldTable = Table::find($reservation->table_id);
     $oldTable->update(['status' => 'متاحة']);
 
-    // تحديث حالة الطاولة الجديدة إلى محجوزة
     $newTable = Table::find($data['table_id']);
     if ($newTable->status !== 'متاحة') {
         return redirect()->back()->with('error', 'هذه الطاولة محجوزة بالفعل');
     }
     $newTable->update(['status' => 'محجوزة']);
 
-    // تحديث الحجز
     $reservation->update($data);
 
     return redirect()->route('reservations.index')->with('success', 'تم تعديل الحجز بنجاح');

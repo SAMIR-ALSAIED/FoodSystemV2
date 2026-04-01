@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class CustomerCartOr extends Model
 {
+
   protected $fillable = [
         'customer_cart_id',
         'product_name',
@@ -15,7 +16,6 @@ class CustomerCartOr extends Model
         'total',
     ];
 
-    // علاقة العنصر بالطلب
     public function order()
     {
         return $this->belongsTo(CustomerCart::class, 'customer_cart_id');
