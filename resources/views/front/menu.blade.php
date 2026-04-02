@@ -1,6 +1,6 @@
 @extends('front.layout.app')
 
-@section('title', 'قائمة الطعام المميزة')
+@section('title', 'المنيو')
 
 @section('front_content')
 
@@ -8,39 +8,38 @@
     :root {
         --primary: #ff8c00;
         --primary-light: #fff4e6;
+        --success: #10b981;
         --dark: #0f172a;
         --gray-text: #64748b;
         --radius: 18px;
-        --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    body { background: #f8fafc; 
-            font-family: 'Cairo', sans-serif;
-
+    body { 
+        background: #f8fafc; 
+        font-family: 'Cairo', sans-serif;
         direction: rtl; 
-    
     }
 
-    /* لودر علوي نحيف جداً */
+    /* لودر علوي نحيف */
     #top-loader {
         position: fixed; top: 0; left: 0; width: 0%; height: 3px; 
-        z-index: 9999; transition: width 0.4s ease;
+        background: var(--primary); z-index: 9999; transition: width 0.4s ease;
     }
 
-    /* كارت المنتج المطور */
+    /* كارت المنتج */
     .product-list-card { 
         background: #fff; border-radius: var(--radius); padding: 12px; 
         display: flex; align-items: center; gap: 16px;
-        margin-bottom: 16px; border: 1px solid rgba(0,0,0,0.03);
-        box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02), 0 2px 4px -1px rgba(0,0,0,0.01);
+        margin-bottom: 16px; border: 1px solid rgba(0,0,0,0.05);
         transition: var(--transition);
         position: relative;
     }
     
     .product-list-card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 10px 15px -3px rgba(0,0,0,0.06);
-        border-color: var(--primary-light);
+        transform: translateY(-3px);
+        box-shadow: 0 12px 20px -5px rgba(0,0,0,0.08);
+        border-color: var(--primary);
     }
 
     .p-img-wrapper { 
@@ -58,7 +57,7 @@
         padding: 2px 8px; border-radius: 6px; margin-bottom: 5px;
     }
     .p-name { 
-        font-size: 1.05rem; font-weight: 800; color: var(--dark); 
+        font-size: 1.1rem; font-weight: 800; color: var(--dark); 
         margin: 0; line-height: 1.4;
     }
     .p-price { 
@@ -68,45 +67,51 @@
     .p-price small { font-size: 0.75rem; color: var(--gray-text); font-weight: 600; }
 
     /* زر الإضافة */
-    .p-action { margin-right: auto; } 
     .add-to-cart-btn { 
         background: var(--dark); color: #fff; border: none; 
-        width: 44px; height: 44px; border-radius: 14px; 
+        width: 45px; height: 45px; border-radius: 14px; 
         display: flex; align-items: center; justify-content: center; 
-        transition: var(--transition); box-shadow: 0 4px 6px rgba(15, 23, 42, 0.1);
+        transition: var(--transition);
     }
-    .add-to-cart-btn:hover { background: var(--primary); transform: rotate(90deg); }
-    .add-to-cart-btn:active { transform: scale(0.9); }
+    .add-to-cart-btn:hover { background: var(--primary); transform: scale(1.05); }
+    .add-to-cart-btn:disabled { background: var(--success) !important; opacity: 1; }
+
+    /* رسالة التنبيه (Toast) المحدثة */
+    #cart-toast {
+        position: fixed; bottom: 30px; left: 50%;
+        transform: translateX(-50%) translateY(100px);
+        background: var(--dark); color: #fff;
+        padding: 14px 25px; border-radius: 50px;
+        z-index: 10000; display: flex; align-items: center; gap: 12px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        font-weight: 700; opacity: 0; transition: var(--transition);
+    }
+    #cart-toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
 
     /* التصنيفات للموبايل */
     .mobile-nav-scroll { 
         display: flex; overflow-x: auto; gap: 10px; padding: 12px; background: #fff; 
-       margin-top: 15px;
-        position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #f1f5f9; scrollbar-width: none;
+        position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #f1f5f9;
+        scrollbar-width: none;
     }
+    .mobile-nav-scroll::-webkit-scrollbar { display: none; }
     .pill-link { 
-        padding: 8px 18px; background: #f1f5f9; border-radius: 50px; 
+        padding: 8px 20px; background: #f1f5f9; border-radius: 50px; 
         white-space: nowrap; color: var(--gray-text); font-weight: 700; 
-        text-decoration: none !important; font-size: 0.9rem; transition: var(--transition);
+        text-decoration: none !important; transition: var(--transition);
     }
-    .pill-link.active { background: var(--primary); color: #fff; box-shadow: 0 4px 10px rgba(255,140,0,0.2); }
+    .pill-link.active { background: var(--primary); color: #fff; }
 
-    /* الترقيم (Pagination) */
-    .ajax-pagination .page-link { border: none; background: transparent; color: var(--dark); font-weight: 700; border-radius: 10px !important; margin: 0 2px; }
-    .ajax-pagination .page-item.active .page-link { background: var(--primary); color: #fff; }
-
-    #products-wrapper { transition: opacity 0.2s ease; }
-    .loading-opacity { opacity: 0.4; pointer-events: none; }
-    
-    @media (max-width: 768px) {
-        .product-list-card { padding: 10px; gap: 12px; }
-        .p-img-wrapper { width: 80px; height: 80px; min-width: 80px; }
-        .p-name { font-size: 0.95rem; }
-        .add-to-cart-btn { width: 40px; height: 40px; }
-    }
+    #products-wrapper { transition: opacity 0.3s ease; }
+    .loading-opacity { opacity: 0.5; pointer-events: none; }
 </style>
 
 <div id="top-loader"></div>
+
+<div id="cart-toast">
+    <i class="fas fa-check-circle text-warning"></i>
+    <span>تمت إضافة الوجبة للسلة!</span>
+</div>
 
 <div class="mobile-nav-scroll d-md-none">
     <a href="javascript:void(0)" data-url="{{ route('front.menu') }}" class="pill-link filter-btn {{ empty($categoryId) ? 'active' : '' }}">الكل</a>
@@ -119,9 +124,8 @@
 
 <div class="container py-4">
     <div class="row">
-        {{-- الديسكتوب سايدبار بشكله الجديد --}}
         <div class="col-md-3 d-none d-md-block">
-            <div class="sticky-top" style="top: 90px;">
+            <div class="sticky-top" style="top: 100px;">
                 <h6 class="fw-bold mb-3 text-muted px-2">التصنيفات</h6>
                 <div class="list-group list-group-flush shadow-sm rounded-4 overflow-hidden border">
                     <a href="javascript:void(0)" data-url="{{ route('front.menu') }}" class="list-group-item list-group-item-action border-0 filter-btn py-3 fw-bold {{ empty($categoryId) ? 'active bg-warning text-white' : '' }}">
@@ -138,7 +142,7 @@
 
         <div class="col-md-9">
             <div class="d-flex align-items-center justify-content-between mb-4 px-1">
-                <h4 class="fw-black m-0" id="current-cat-title">
+                <h4 class="fw-bold m-0" id="current-cat-title">
                     {{ isset($categoryId) ? $categories->where('id', $categoryId)->first()->name : 'قائمة الطعام' }}
                 </h4>
             </div>
@@ -160,15 +164,16 @@
                                     <form class="ajax-form-cart" action="{{ route('front.cart.add') }}" method="POST">
                                         @csrf
                                         <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                        <button type="submit" class="add-to-cart-btn"><i class="fas fa-plus"></i></button>
+                                        <button type="submit" class="add-to-cart-btn">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
                                     </form>
                                 </div>
                             </div>
                         </div>
                     @empty
                         <div class="col-12 text-center py-5">
-                            <img src="{{ asset('images/no-results.png') }}" style="width: 120px; opacity: 0.5;">
-                            <p class="text-muted mt-3">عذراً، لا توجد وجبات في هذا القسم حالياً</p>
+                            <p class="text-muted">لا توجد وجبات في هذا القسم حالياً</p>
                         </div>
                     @endforelse
                 </div>
@@ -181,14 +186,10 @@
     </div>
 </div>
 
-{{-- رسالة النجاح (Toast) --}}
-<div id="cart-toast" style="position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background: var(--dark); color: #fff; padding: 12px 24px; border-radius: 50px; z-index: 10000; display: none; box-shadow: 0 10px 25px rgba(0,0,0,0.2); font-weight: 800;">
-    <i class="fas fa-check-circle text-warning me-2"></i> تمت الإضافة للسلة بنجاح
-</div>
-
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 $(function() {
+    // وظيفة التحميل السريع AJAX
     function quickLoad(url) {
         $("#top-loader").css("width", "40%");
         $("#products-wrapper").addClass("loading-opacity");
@@ -207,11 +208,12 @@ $(function() {
                 setTimeout(() => {
                     $("#top-loader").css("width", "0%");
                     $("#products-wrapper").removeClass("loading-opacity");
-                }, 150);
+                }, 200);
             }
         });
     }
 
+    // تبديل الأقسام
     $(document).on('click', '.filter-btn', function(e) {
         e.preventDefault();
         const url = $(this).data('url');
@@ -220,47 +222,55 @@ $(function() {
         quickLoad(url);
     });
 
+    // الترقيم
     $(document).on('click', '.ajax-pagination a', function(e) {
         e.preventDefault();
         quickLoad($(this).attr('href'));
-        window.scrollTo({ top: 0, behavior: 'instant' });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
+    // إضافة للسلة AJAX
     $(document).on('submit', '.ajax-form-cart', function(e) {
         e.preventDefault();
-        const btn = $(this).find('button');
-        const icon = btn.html();
-        btn.prop('disabled', true).html('<i class="fas fa-circle-notch fa-spin"></i>');
+        const form = $(this);
+        const btn = form.find('button');
+        const originalIcon = btn.html();
+        
+        btn.prop('disabled', true).html('<i class="fas fa-spinner fa-spin"></i>');
 
         $.ajax({
-            url: $(this).attr('action'),
+            url: form.attr('action'),
             method: 'POST',
-            data: $(this).serialize(),
+            data: form.serialize(),
             success: function(res) {
+                // إظهار التنبيه
+                $('#cart-toast').addClass('show');
+                
+                // تحديث العداد العلوي إن وجد
                 if (window.updateCartCount) window.updateCartCount(res.cart_count);
-                $('#cart-toast').stop().fadeIn(300).delay(2000).fadeOut(300);
-                btn.html('<i class="fas fa-check"></i>').css('background', '#10b981');
+                
+                // تغيير شكل الزر لعلامة صح
+                btn.html('<i class="fas fa-check"></i>');
+
                 setTimeout(() => {
-                    btn.prop('disabled', false).html(icon).css('background', '');
-                }, 1200);
+                    $('#cart-toast').removeClass('show');
+                    setTimeout(() => {
+                        btn.prop('disabled', false).html(originalIcon);
+                    }, 500);
+                }, 2000);
+            },
+            error: function() {
+                btn.prop('disabled', false).html(originalIcon);
+                alert('حدث خطأ، حاول مرة أخرى');
             }
         });
     });
 });
 
-// هذا الكود يكتشف إذا كان المستخدم عاد للخلف وكانت الصفحة "مخزنة"
-    window.addEventListener('pageshow', function(event) {
-        if (event.persisted || (window.performance && window.performance.navigation.type === 2)) {
-            // إذا اكتشفنا أن المستخدم رجع للخلف، ننعش الصفحة فوراً
-            window.location.reload();
-        }
-    });
-
-    // تأكد أيضاً من تصفير حالة الأزرار يدوياً فور تحميل الصفحة
-    $(document).ready(function() {
-        $('.add-to-cart-btn').prop('disabled', false);
-        $('#submit-btn').prop('disabled', false).text('إرسال الطلب الآن');
-    });
+// التعامل مع زر الرجوع في المتصفح
+window.addEventListener('pageshow', function(event) {
+    if (event.persisted) window.location.reload();
+});
 </script>
 
 @endsection

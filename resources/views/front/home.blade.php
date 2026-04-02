@@ -1,6 +1,6 @@
 @extends('front.layout.app')
 
-@section('title', 'الصفحة الرئيسية - القائمة الملكية')
+@section('title', 'الصفحة الرئيسية')
 
 @section('front_content')
 

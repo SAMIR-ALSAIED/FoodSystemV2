@@ -132,7 +132,7 @@
         padding: 30px; position: sticky; top: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);
     }
     .summary-item { display: flex; justify-content: space-between; margin-bottom: 15px; opacity: 0.8; }
-    .total-row { border-top: 1px solid #444; pt-3; mt-3; }
+    .total-row { border-top: 1px solid #444; padding-top: 15px; margin-top: 15px; }
 
     .btn-confirm {
         background: var(--primary); color: #000; font-weight: 900; 
@@ -140,6 +140,13 @@
         margin-top: 25px; transition: 0.3s; font-size: 1.1rem;
     }
     .btn-confirm:hover { background: var(--primary-dark); box-shadow: 0 10px 20px rgba(255,193,7,0.3); }
+
+    .update-anim { animation: pulse 0.5s; }
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.1); color: var(--primary); }
+        100% { transform: scale(1); }
+    }
 
     @media (max-width: 768px) {
         .cart-card { flex-direction: column; text-align: center; }
@@ -209,28 +216,28 @@
                     </div>
 
                     <div class="delivery-card">
-                        <h6 class="fw-black mb-4"><i class="fas fa-truck text-warning me-2"></i> معلومات الشحن والتوصيل</h6>
+                        <h6 class="fw-black mb-4"><i class="fas fa-truck text-warning me-2"></i> معلومات  التوصيل</h6>
                         <form id="orderForm">
                             @csrf
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-floating-custom" id="container_name">
                                         <label>الاسم بالكامل</label>
-                                        <input type="text" name="name" id="field_name" >
+                                        <input type="text" name="name" id="field_name" placeholder="أدخل اسمك ">
                                     </div>
                                     <span class="laravel-error" id="err_name"></span>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating-custom" id="container_phone">
                                         <label>رقم الجوال</label>
-                                        <input type="tel" name="phone" id="field_phone" >
+                                        <input type="tel" name="phone" id="field_phone" placeholder="ادخل رقم الجوال">
                                     </div>
                                     <span class="laravel-error" id="err_phone"></span>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-floating-custom" id="container_address">
                                         <label>عنوان التوصيل التفصيلي</label>
-                                        <input type="text" name="address" id="field_address" >
+                                        <input type="text" name="address" id="field_address" placeholder="ادخل العنوان    ">
                                     </div>
                                     <span class="laravel-error" id="err_address"></span>
                                 </div>
@@ -244,7 +251,7 @@
                         <h5 class="fw-black mb-4">ملخص الفاتورة</h5>
                         <div class="summary-item">
                             <span>إجمالي المنتجات</span>
-                            <span>{{ number_format($grandTotal) }} ج.م</span>
+                            <span id="summary-subtotal">{{ number_format($grandTotal) }} ج.م</span>
                         </div>
                     
                         <div class="total-row d-flex justify-content-between align-items-center mt-3 pt-3">
@@ -315,6 +322,8 @@ function removeItem(id) {
 }
 
 // مسح السلة بالكامل
+
+
 function clearFullCart() {
     Swal.fire({
         title: 'مسح السلة بالكامل؟',
@@ -326,8 +335,13 @@ function clearFullCart() {
         cancelButtonText: 'تراجع'
     }).then((result) => {
         if (result.isConfirmed) {
-            $.get("{{ url('cart/clear') }}", function() {
-                location.reload();
+            // استخدام $.post بدلاً من $.get وإرسال التوكن
+            $.post("{{ route('front.cart.clear') }}", {
+                _token: "{{ csrf_token() }}" 
+            }, function(response) {
+                location.reload(); 
+            }).fail(function(xhr) {
+                Swal.fire('خطأ', 'تعذر مسح السلة، حاول مرة أخرى', 'error');
             });
         }
     });
@@ -336,9 +350,11 @@ function clearFullCart() {
 // حساب الإجمالي
 function calcTotal() {
     let sum = 0;
-    $('[id^="sub-"]').each(function() { sum += parseFloat($(this).text().replace(/,/g, '')); });
+    $('[id^="sub-"]').each(function() { 
+        sum += parseFloat($(this).text().replace(/,/g, '')); 
+    });
     $('.total-val').text(sum.toLocaleString()).addClass('update-anim');
-    $('.summary-item span:last-child').first().text(sum.toLocaleString() + ' ج.م');
+    $('#summary-subtotal').text(sum.toLocaleString() + ' ج.م');
 }
 
 // إتمام الطلب
@@ -351,10 +367,10 @@ function processOrder(btn) {
         url: "{{ route('front.cart.checkout') }}",
         method: "POST",
         data: $('#orderForm').serialize(),
-        success: function() {
+        success: function(response) {
             Swal.fire({
                 title: 'تم الطلب بنجاح!',
-                text: 'شكراً لك، سيصلك طلبك في أقرب وقت.',
+                text: response.message || 'شكراً لك، سيصلك طلبك في أقرب وقت.',
                 icon: 'success',
                 confirmButtonColor: '#ffc107'
             }).then(() => { window.location.replace("{{ url('/') }}"); });
@@ -368,7 +384,7 @@ function processOrder(btn) {
                     $(`#container_${key}`).addClass('is-invalid-border');
                 });
             } else {
-                Swal.fire('خطأ', 'حدثت مشكلة، حاول مرة أخرى', 'error');
+                Swal.fire('خطأ', xhr.responseJSON.message || 'حدثت مشكلة، حاول مرة أخرى', 'error');
             }
         }
     });

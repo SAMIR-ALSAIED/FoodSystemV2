@@ -17,10 +17,7 @@ class CartController extends Controller
         return view('front.cart', compact('cart'));
     }
 
-<<<<<<< HEAD
-=======
-    // إضافة منتج للسلة
->>>>>>> e0081a4 (update: improve cart, reservation, roles and UI)
+
     public function add(Request $request)
     {
         $product = Product::findOrFail($request->product_id);
@@ -125,19 +122,18 @@ class CartController extends Controller
         ]);
     }
 
-    // مسح السلة بالكامل
-    public function clear()
-<<<<<<< HEAD
+    public function clear(Request $request)
 {
     session()->forget('cart');
+
+    if ($request->ajax()) {
+        return response()->json([
+            'status' => 'success',
+            'message' => 'تم تفريغ السلة بنجاح'
+        ]);
+    }
+
     return redirect()->back()->with('success', 'تم مسح السلة');
 }
 
 }
-=======
-    {
-        session()->forget('cart');
-        return response()->json(['status' => 'success']);
-    }
-}
->>>>>>> e0081a4 (update: improve cart, reservation, roles and UI)
